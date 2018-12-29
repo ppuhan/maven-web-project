@@ -2,19 +2,18 @@
 
 node {
 	   
-	stage('Checkouting'){
+	stage('Clone'){
 
-          checkout scm
+          echo "Copying ..."
        }
 
-       stage('BuildArtifact'){
+       stage('Build'){
 
-          sh 'mvn install'
+          echo  "Building ..."
        }
 	   
-      stage('Sonar') {
-                    //add stage sonar
-                    sh 'mvn sonar:sonar'
+      stage('Deploy') {
+                    echo "Deploying .."
                 }
        
 }
