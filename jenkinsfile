@@ -1,0 +1,13 @@
+node{
+    stage('scm checkout'){
+               checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
+               doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
+               userRemoteConfigs: [[url: 'https://github.com/ppuhan/maven-web-project.git']]])
+     }
+     stage('compile-package'){
+              sh 'mvn package'
+     }
+ }
+     
+               
+                    
