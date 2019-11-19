@@ -1,11 +1,13 @@
 node{
     stage('scm checkout'){
-               git 'https://github.com/ppuhan/maven-web-project.git'
+               git credentialsId: 'GIT', 
+               url: 'https://github.com/ppuhan/maven-web-project.git'
+               sh "git clone https://github.com/ppuhan/maven-web-project.git"
      }
      stage('compile-package'){
               //get maven home path
               def mvnhome = tool name: 'MAVEN', type: 'maven'
-              sh "$(defmvnhome)/bin/mvn package"
+              sh "$(defmvnhome)/bin/mvn clean package"
      }
  }
      
