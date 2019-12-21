@@ -1,7 +1,7 @@
 node{
      stage(scm checkout)
      {
-     checkout changelog: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GIT', url: 'https://github.com/ppuhan/maven-web-project.git']]]
+     git credentialsId: 'GIT', url: 'https://github.com/ppuhan/maven-web-project.git'
      }
      stage(test)
      {
